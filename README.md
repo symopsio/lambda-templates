@@ -1,6 +1,6 @@
 # serverless-templates
 
-These templates let you generate Serverless integrations with the Sym workflow engine. Use these integrations for systems that do not directly integrate with the Sym platform.
+Serverless integrations allow any service to integrate with the Sym workflow engine. Use these templates to generate handlers that receive all the information you need to act on approvals and expirations when they happen in Sym.
 
 ## Generating a project
 
@@ -8,16 +8,15 @@ Use the `template-url` parameter to `sls create` to specify one of these templat
 
 ### Typescript
 
-`sls create --template-url https://github.com/symopsio/serverless-templates/tree/master/sym-typescript-approvals`
+`sls create --name <your-project-name> --template-url https://github.com/symopsio/serverless-templates/tree/master/sym-typescript-approvals`
 
 ### Python
 
-`sls create --template-url https://github.com/symopsio/serverless-templates/tree/master/sym-python-approvals`
+`sls create --name <your-project-name> --template-url https://github.com/symopsio/serverless-templates/tree/master/sym-python-approvals`
 
 ## Implementing your custom handler
 
 Your handler needs to provide implementations of approval and expiration functions. 
-
 * Approvals happen when a requester is approved (either by another user or automatically) for a given resource. Approvals receive an [Approval](https://github.com/symopsio/types/blob/master/docs/index.md#sym.messages.Approval) event.
 * Expirations happen when the time limit on an approval is reached. Expirations receive an [Expiration](https://github.com/symopsio/types/blob/master/docs/index.md#sym.messages.Expiration) event.
 
