@@ -1,18 +1,18 @@
 # serverless-templates
 
-Serverless integrations allow any service to integrate with the Sym workflow engine. Use these templates to generate handlers that receive all the information you need to act on approvals and expirations when they happen in Sym.
+Sym's serverless integrations let you use Sym workflows to manage resources that we don't directly integrate with (like Okta and AWS IAM). Sym invokes your custom function w/the appropriate metadata and then your function implementation updates your backend systems.
 
 ## Generating a project
 
-Use the `template-url` parameter to `sls create` to specify one of these templates for your project:
+Use the `--template-url` parameter to `sls create` to specify one of our [custom templates](templates) for your project:
 
 ### Typescript
 
-`sls create --name <your-project-name> --template-url https://github.com/symopsio/serverless-templates/tree/master/sym-typescript-approvals`
+`sls create --name <your-project-name> --template-url https://github.com/symopsio/serverless-templates/tree/master/sym-aws-typescript-approvals`
 
 ### Python
 
-`sls create --name <your-project-name> --template-url https://github.com/symopsio/serverless-templates/tree/master/sym-python-approvals`
+`sls create --name <your-project-name> --template-url https://github.com/symopsio/serverless-templates/tree/master/sym-aws-python-approvals`
 
 ## Implementing your custom handler
 

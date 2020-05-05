@@ -1,18 +1,20 @@
 service:
-  name: sym-python-approvals
+  name: sym-aws-typescript-approvals
 
 custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
   stage: ${{opt:stage, self:provider.stage}}
   symAccountid: ${{opt:symAccountId, '803477428605'}}
-  pythonRequirements:
-    dockerizePip: true
 
+# Add the serverless-webpack plugin
 plugins:
-  - serverless-python-requirements
+  - serverless-webpack
 
 provider:
   name: aws
-  runtime: python3.7
+  runtime: nodejs12.x
 
 # you can overwrite defaults here
   endpointType: REGIONAL
@@ -43,21 +45,14 @@ provider:
 # you can add packaging information here
 package:
   exclude:
-    - node_modules/**
-    - .idea/**
-    - .requirements/**
-    - env/**
-    - README.md
-    - package.json
-    - package-lock.json
-    - requirements.txt
+    - .gitignore
 
 functions:
   approve:
-    handler: handler.handle_approve
+    handler: handler.handleApprove
 
   expire:
-    handler: handler.handle_expire
+    handler: handler.handleExpire
 
 #    Define function environment variables here
 #    environment:

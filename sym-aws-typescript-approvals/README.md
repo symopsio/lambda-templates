@@ -1,4 +1,4 @@
-# sym-typescript-approvals
+# sym-aws-typescript-approvals
 
 Refer to the top-level [README](../README.md) for how to use this template.
 

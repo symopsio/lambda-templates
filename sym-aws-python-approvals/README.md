@@ -1,4 +1,4 @@
-# sym-python-approvals
+# sym-aws-python-approvals
 
 Refer to the top-level [README](../README.md) for general information on this template.
 

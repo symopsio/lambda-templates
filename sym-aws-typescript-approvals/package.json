@@ -1,5 +1,5 @@
 {
-  "name": "@symops/serverless-sym-typescript-template",
+  "name": "@symops/sym-aws-typescript-approvals",
   "version": "1.0.0",
   "description": "Template for serverless integrations with Sym Access",
   "author": "Sym, Inc",

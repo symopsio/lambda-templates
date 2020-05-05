@@ -1,5 +1,5 @@
 {
-  "name": "@symops/serverless-sym-python-template",
+  "name": "@symops/sym-aws-python-approvals",
   "version": "1.0.0",
   "description": "Template for serverless integrations with Sym Access",
   "author": "Sym, Inc",
