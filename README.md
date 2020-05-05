@@ -4,7 +4,7 @@ Sym's serverless integrations let you use Sym workflows to manage resources that
 
 ## Generating a project
 
-Use the `--template-url` parameter to `sls create` to specify one of our [custom templates](templates) for your project:
+Use the `--template-url` parameter to `sls create` to specify one of our custom templates for your project:
 
 ### Typescript
 
@@ -24,11 +24,13 @@ Your handler needs to provide implementations of approval and expiration functio
 
 Approvals and Expirations are defined as [protobufs](https://developers.google.com/protocol-buffers/) in the shared [symopsio/types](https://github.com/symopsio/types) repo. 
 
-## IAM Role
+## AWS Integration
 
-The `serverless.yml` config for each template includes the definition of an IAM Role that Sym will use in order to invoke your functions. 
+### IAM Role
 
-## Sym Integration
+The `serverless.yml` config for AWS templates includes the definition of an IAM Role that Sym will use in order to invoke your functions. 
+
+### Sym Configuration
 
 Sym will need the following configuration items in order for your function to get invoked.
 
