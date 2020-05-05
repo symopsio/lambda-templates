@@ -1,4 +1,4 @@
-# sym-python-template
+# sym-python-approvals
 
 Refer to the top-level [README](../README.md) for general information on this template.
 

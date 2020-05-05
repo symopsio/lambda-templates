@@ -1,5 +1,5 @@
 service:
-  name: sym-typescript-template
+  name: sym-typescript-approvals
 
 custom:
   webpack:

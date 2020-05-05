@@ -1,6 +1,6 @@
 # serverless-templates
 
-These templates let you generate Serverless integrations with the Sym workflow engine. Use these integrations to enable Sym workflows to manage approvals for systems that do not directly integrate with the Sym platform.
+These templates let you generate Serverless integrations with the Sym workflow engine. Use these integrations for systems that do not directly integrate with the Sym platform.
 
 ## Generating a project
 
@@ -8,15 +8,15 @@ Use the `template-url` parameter to `sls create` to specify one of these templat
 
 ### Typescript
 
-`sls create --template-url https://github.com/symopsio/master/blob/serverless-templates/sym-typescript-template`
+`sls create --template-url https://github.com/symopsio/serverless-templates/tree/master/sym-typescript-approvals`
 
 ### Python
 
-`sls create --template-url https://github.com/symopsio/master/blob/serverless-templates/sym-python-template`
+`sls create --template-url https://github.com/symopsio/serverless-templates/tree/master/sym-python-approvals`
 
-## Events
+## Implementing your custom handler
 
-The handler needs to provide implementations of approval and expiration functions. 
+Your handler needs to provide implementations of approval and expiration functions. 
 
 * Approvals happen when a requester is approved (either by another user or automatically) for a given resource. Approvals receive an [Approval](https://github.com/symopsio/types/blob/master/docs/index.md#sym.messages.Approval) event.
 * Expirations happen when the time limit on an approval is reached. Expirations receive an [Expiration](https://github.com/symopsio/types/blob/master/docs/index.md#sym.messages.Expiration) event.
@@ -38,10 +38,6 @@ Function Names support any of the formats defined for the [FunctionName](https:/
 * `ApprovalFunctionName`: The name of the approve Lambda function
 * `ExpirationFunctionName`: The name the expiration Lambda function
 * `RoleARN`: The ARN of the IAM Role that Sym assumes in order to invoke the function
-
-## Serverless Template
-
-This template was generated from the Serverless [aws-nodejs-typescript](https://github.com/serverless/serverless/tree/master/lib/plugins/create/templates/aws-nodejs-typescript) template.
 
 ## Get in touch
 
