@@ -1,0 +1,99 @@
+service:
+  name: sym-python-template
+
+custom:
+  stage: ${{opt:stage, self:provider.stage}}
+  symAccountid: ${{opt:symAccountId, '803477428605'}}
+  pythonRequirements:
+    dockerizePip: true
+
+plugins:
+  - serverless-python-requirements
+
+provider:
+  name: aws
+  runtime: python3.7
+
+# you can overwrite defaults here
+  endpointType: REGIONAL
+
+# makes serverless variables double braced so as to not conflict with CF
+  variableSyntax: '\${{(((?!\${{).)+?)}}' 
+
+# you can add statements to the Lambda function's IAM Role here
+#  iamRoleStatements:
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:ListBucket"
+#      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:PutObject"
+#      Resource:
+#        Fn::Join:
+#          - ""
+#          - - "arn:aws:s3:::"
+#            - "Ref" : "ServerlessDeploymentBucket"
+#            - "/*"
+
+# you can define service wide environment variables here
+  environment:
+    STAGE: ${{self:provider.stage}}
+
+# you can add packaging information here
+package:
+  exclude:
+    - node_modules/**
+    - .idea/**
+    - .requirements/**
+    - env/**
+    - README.md
+    - package.json
+    - package-lock.json
+    - requirements.txt
+
+functions:
+  approve:
+    handler: handler.handle_approve
+
+  expire:
+    handler: handler.handle_expire
+
+#    Define function environment variables here
+#    environment:
+#      variable2: value2
+
+# you can add CloudFormation resource templates here
+resources:
+  Outputs:
+    SymCrossAccountInvocationRole:
+      Value:
+        Ref: 'SymCrossAccountInvocationRole'
+  Resources:
+    SymCrossAccountInvocationRole:
+      Type: 'AWS::IAM::Role'
+      Properties:
+        AssumeRolePolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+          - Effect: 'Allow'
+            Principal:
+              AWS:
+                - 'arn:aws:iam::${{self:custom.symAccountid}}:root'
+            Action:
+            - 'sts:AssumeRole'
+        Path: '/sym/'
+        RoleName:
+          Fn::Sub: 'SymExecute-${{self:service}}'
+        Description: 'Sym uses this role to invoke lambda functions.'
+        Policies:
+        - PolicyName: 'SymCanInvokeFunctions'
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+            - Effect: 'Allow'
+              Action:
+                - 'lambda:InvokeFunction'
+              Resource:
+                - Fn::GetAtt: 'ApproveLambdaFunction.Arn'
+                - Fn::GetAtt: 'ExpireLambdaFunction.Arn'
