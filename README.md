@@ -1,6 +1,6 @@
 # serverless-templates
 
-Sym's serverless integrations let you use Sym workflows to manage resources that we don't directly integrate with (like Okta and AWS IAM). Sym invokes your custom function w/the appropriate metadata and then your function implementation updates your backend systems.
+Sym's serverless integrations let you use Sym workflows to manage resources that the Sym platform does not directly integrate with. Sym invokes your custom function w/the appropriate metadata and then your function implementation updates your backend systems. Our starter templates use the [Serverless Framework](https://serverless.com) to manage function creation and deployment.
 
 ## Generating a project
 
