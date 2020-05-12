@@ -1,0 +1,27 @@
+{
+    "schema": {
+        "version": 1
+    },
+    "target": {
+        "user": {
+            "identities": [
+								{
+										"service": 4,
+										"id": "requester+custom@example.com"
+								},
+								{
+										"service": 3,
+										"id": "requester+aws@example.com"
+								},
+								{
+										"service": 1,
+										"id": "requester+slack@example.com"
+								}
+            ]
+        },
+        "resource": {
+            "service": 4,
+            "id": "custom-id"
+        }
+    }
+}

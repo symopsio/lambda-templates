@@ -24,6 +24,10 @@ Your handler needs to provide implementations of approval and expiration functio
 
 Approvals and Expirations are defined as [protobufs](https://developers.google.com/protocol-buffers/) in the shared [symopsio/types](https://github.com/symopsio/types) repo. 
 
+## Test data
+
+The [test](test) folder includes example approval and expiration events that you can use for testing your lambdas.
+
 ## AWS Integration
 
 ### IAM Role
