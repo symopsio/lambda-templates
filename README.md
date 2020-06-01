@@ -8,11 +8,21 @@ Use the `--template-url` parameter to `sls create` to specify one of our custom 
 
 ### Typescript
 
-`sls create --name <your-project-name> --template-url https://github.com/symopsio/serverless-templates/tree/master/sym-aws-typescript-approvals`
+```
+$ sls create --name <your-project-name> --template-url https://github.com/symopsio/serverless-templates/tree/master/sym-aws-typescript-approvals
+$ cd <your-project-name>
+$ npm install
+```
 
 ### Python
 
-`sls create --name <your-project-name> --template-url https://github.com/symopsio/serverless-templates/tree/master/sym-aws-python-approvals`
+```
+$ sls create --name <your-project-name> --template-url https://github.com/symopsio/serverless-templates/tree/master/sym-aws-python-approvals
+$ cd <your-project-name>
+$ npm install
+```
+
+Note: the python template includes the `dockerizePip` option set to `true`, but if you don't have Docker installed locally you can change this to `false`.
 
 ## Implementing your custom handler
 
