@@ -8,7 +8,6 @@ provider:
   name: aws
   runtime: go1.x
 
-# you can overwrite defaults here
   endpointType: REGIONAL
 
 # makes serverless variables double braced so as to not conflict with CF
@@ -30,7 +29,6 @@ provider:
 #            - "Ref" : "ServerlessDeploymentBucket"
 #            - "/*"
 
-# you can define service wide environment variables here
   environment:
     STAGE: ${{self:provider.stage}}
 

@@ -13,7 +13,7 @@ import (
 
 // Handler is our lambda handler invoked by the `lambda.Start` function call
 func Handler(ctx context.Context, expiration *messages.Expiration) (*messages.ExpirationResponse, error) {
-	identity, err := internal.GetIdentity(expiration.Target.User, enums.Service_SLACK)
+	identity, err := internal.FindIdentity(expiration.Target.User, enums.Service_SLACK)
 	if err != nil {
 		return &messages.ExpirationResponse{
 			Ok: false, Error: err.Error(),

@@ -13,7 +13,7 @@ import (
 
 // Handler is our lambda handler invoked by the `lambda.Start` function call
 func Handler(ctx context.Context, approval *messages.Approval) (*messages.ApprovalResponse, error) {
-	identity, err := internal.GetIdentity(approval.Request.Target.User, enums.Service_SLACK)
+	identity, err := internal.FindIdentity(approval.Request.Target.User, enums.Service_SLACK)
 	if err != nil {
 		return &messages.ApprovalResponse{
 			Ok: false, Error: err.Error(),
