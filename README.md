@@ -24,6 +24,14 @@ $ npm install
 
 Note: the python template includes the `dockerizePip` option set to `true`, but if you don't have Docker installed locally you can change this to `false`.
 
+### Go
+
+```
+$ sls create --name <your-project-name> --template-url https://github.com/symopsio/serverless-templates/tree/master/sym-aws-go-approvals
+$ cd <your-project-name>
+$ make
+```
+
 ## Implementing your custom handler
 
 Your handler needs to provide implementations of approval and expiration functions. 
