@@ -2,9 +2,9 @@
 
 Refer to the top-level [README](../README.md) for how to use this template.
 
-## internal module import
+## Module configuration
 
-Please note you should update the import of the `internal` module in the approval and expiration functions to match your go module path (you can see this in `go.mod` once you run make).
+You'll need to update [`gomod.sh`] to properly configure the module path for your organization. Change `GITHUB_PATH` to the correct path for where you're checking your lambda in. You'll also need to update the import paths for the `internal` package in the approve and expire functions to match your updated module path.
 
 ## Serverless Template
 

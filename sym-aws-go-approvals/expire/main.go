@@ -6,7 +6,8 @@ import (
 
 	"github.com/aws/aws-lambda-go/lambda"
 
-	"github.com/serverless-templates/sym-aws-go-approvals/internal"
+	// Change this path to your module path
+	"github.com/symopsio/serverless-templates/sym-aws-go-approvals/internal"
 	"github.com/symopsio/types/go/enums"
 	"github.com/symopsio/types/go/messages"
 )
