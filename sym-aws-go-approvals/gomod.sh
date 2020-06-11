@@ -1,16 +1,16 @@
 #!/bin/bash
 set -eu
 
+if [ -z "${GITHUB_PATH:-}" ]; then
+    echo "Set GITHUB_PATH in your Makefile"
+    exit 1
+fi
+
 if [ -f ./go.mod ]; then
     exit 0
 fi
 
 touch go.mod
-
-if [ -z ${GITHUB_PATH} ]; then
-    echo "Set GITHUB_PATH in your Makefile"
-    exit 1
-fi
 
 CURRENT_DIR=$(basename $(pwd))
 
