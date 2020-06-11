@@ -7,8 +7,11 @@ fi
 
 touch go.mod
 
-# CHANGEME
-GITHUB_PATH="symopsio/serverless-templates"
+if [ -z ${GITHUB_PATH} ]; then
+    echo "Set GITHUB_PATH in your Makefile"
+    exit 1
+fi
+
 CURRENT_DIR=$(basename $(pwd))
 
 CONTENT=$(cat <<-EOD
