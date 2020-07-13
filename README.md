@@ -1,10 +1,14 @@
 # serverless-templates
 
-Sym's serverless integrations let you use Sym workflows to manage resources that the Sym platform does not directly integrate with. Sym invokes your custom function w/the appropriate metadata and then your function implementation updates your backend systems. Our starter templates use the [Serverless Framework](https://serverless.com) to manage function creation and deployment.
+Sym's serverless integrations let you use Sym workflows to manage resources that the Sym platform does not directly integrate with. Sym invokes your custom function w/the appropriate metadata and then your function implementation updates your backend systems. 
 
-## Generating a project
+## Terraform Starter Template
 
-Use the `--template-url` parameter to `sls create` to specify one of our custom templates for your project:
+Refer to [tf-aws-go-approvals](tf-aws-go-approvals/README.md) for an example Sym Lambda deployed with Terraform.
+
+## Serverless Framework Templates
+
+In addition to our Terraform starter, we provide templates using the [Serverless Framework](https://serverless.com) to manage function creation and deployment. Use the `--template-url` parameter to `sls create` to specify one of our custom templates for your project:
 
 ### Typescript
 
@@ -50,7 +54,7 @@ The [test](test) folder includes example approval and expiration events that you
 
 ### IAM Role
 
-The `serverless.yml` config for AWS templates includes the definition of an IAM Role that Sym will use in order to invoke your functions. 
+Both our Terraform and Serverless starter templates define an IAM Role that allows Sym to invoke Lambda functions in your account. In the Terraform template this is the `sym_execute_role_arn` output, and in `serverless.yml` this is the `SymCrossAccountInvocationRole`.
 
 ### Sym Configuration
 
