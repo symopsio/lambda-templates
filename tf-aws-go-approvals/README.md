@@ -7,9 +7,15 @@ An example Sym approvals Lambda written in Go and deployed with Terraform.
 * Terraform
 * Admin AWS privileges
 
+## Module structure
+
+`tf/modules/lambda`: Defines Approval and Expiration Lambda functions
+`tf/modules/cicd`: An optional CICD user that you can use to automate deployments in your CICD pipeline
+`tf/examples/demo`: An end to end example that uses both the `lambda` and `cicd` modules.
+
 ## Deployment Steps
 
-1. Build the Lambdas and then deploy.
+Build the Lambdas and then deploy.
 
     ```
     $ make dist
