@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "schema_version": 2
+  },
+  "run": {
+    "srn": "health-health:run:CF45667E-06ED-4333-A963-31AF108497A1:latest",
+    "parent": "health-health:run:75E6A968-6151-4BF3-AC8A-EC64638D03FC:latest",
+    "flow": "health-health:flow:iam-access:1.2.3"
+  },
+  "event": {
+    "template": "sym:template:approval:1.0.0",
+    "srn": "sym:event:approval:latest:escalate",
+    "type": "escalate",
+    "timestamp": "2021-11-04T21:53:22+00:00"
+  },
+  "actor": {
+    "user": "healthy-health:user:ABBA3D4B-2CF3-4FA3-AFFC-5D562AAD9BC5:latest",
+    "name": "Ben Bitdiddle",
+    "username": "ben@bitdiddle.com",
+    "identity": {
+      "service": "slack",
+      "external_id": "TABC123",
+      "user_id": "UABC123"
+    }
+  },
+  "fields": {
+    "urgency": "Emergency",
+    "duration": 30,
+    "reason": "foobar",
+    "target": {
+      "srn": "healthy-health:target:test-target:latest",
+      "type": "aws_iam_group",
+      "name": "test-target",
+      "label": "Test Target",
+      "settings": {
+        "iam_group": "prod-break-glass"
+      }
+    }
+  }
+}

@@ -32,7 +32,7 @@ By default the app name is `sym-approvals`. If you want to deploy with a differe
 
 ## Testing
 
-Refer to the shared [test events](../test) that you can use to verify that the lambda is functioning. You can configure these test events in the AWS console and then verify that things are working as expected.
+Refer to the shared [payload](../payload.json) that you can use to verify that the lambda is functioning. You can configure these test events in the AWS console and then verify that things are working as expected.
 
 ## Integrating with CICD
 
