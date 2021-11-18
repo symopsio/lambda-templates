@@ -1,4 +1,4 @@
-# Sym Serverless Integrations
+# Sym Lambda Templates
 
 Sym's serverless integrations let you use Sym workflows to manage resources that the Sym platform does not directly integrate with. Sym invokes your custom function with the appropriate metadata and then your function implementation updates your backend systems.
 
