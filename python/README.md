@@ -17,15 +17,6 @@ This lets you run the lambda locally using:
 $ pip install -r requirements.txt
 $ python -m sym_handler.handler
 ```
-
-## Local Cache
-
-The [serverless-requirements-plugin](https://www.serverless.com/plugins/serverless-python-requirements/) will cache your dependencies. Run `sls requirements cleanCache` to clear the cache if needed.
-
-## Serverless Template
-
-This template was uses the [serverless-python-requirements](https://www.serverless.com/plugins/serverless-python-requirements/) plugin to load in dependencies.
-
 ## Need Help?
 
 Please [reach out](https://docs.symops.com/docs/support) with any questions on this example or help getting started.

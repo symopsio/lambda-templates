@@ -1,0 +1,12 @@
+{
+  "name": "@symopsio/typescript-lambda-template",
+  "version": "1.0.0",
+  "description": "A Lambda template for sym:approval Flows.",
+  "author": "SymOps, Inc.",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.17",
+    "@types/node": "^10.12.18",
+    "typescript": "^3.2.4"
+  }
+}
