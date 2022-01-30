@@ -6,7 +6,6 @@ Refer to the top-level [README](../README.md) for general information on this sk
 
 The schema of Sym's requests to you can be found [here](https://sym.stoplight.io/docs/sym-reporting), and is represented as a Pydantic model in [sym_handler/models.py](sym_handler/models.py).
 
-
 ## Local Testing
 
 [sym_handler/handler.py](sym_handler/handler.py) includes a main method with an example escalation event.
