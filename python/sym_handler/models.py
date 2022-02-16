@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Dict, Optional, Union
+from typing import Dict, List, Optional, Union
 
 from pydantic import BaseModel
 from sym.sdk import SRN
@@ -37,7 +37,17 @@ class LogEntryTarget(BaseModel):
 
 
 class LogEntryMeta(BaseModel):
-    schema_version: int = 2
+    schema_version: int = 4
+
+
+class LogEntryError(BaseModel):
+    message: str
+    code: str
+
+
+class LogEntryState(BaseModel):
+    status: str
+    errors: List[LogEntryError]
 
 
 class LogEntryEvent(BaseModel):
@@ -61,8 +71,11 @@ class LogEntryApprovalFields(LogEntryFields):
 
 
 class SymLogEntry(BaseModel):
+    id: str
     meta: LogEntryMeta
+    state: LogEntryState
     run: LogEntryRun
     event: LogEntryEvent
     actor: LogEntryActor
     fields: Union[LogEntryApprovalFields, LogEntryFields]
+    type: str
