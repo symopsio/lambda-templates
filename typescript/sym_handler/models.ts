@@ -4,18 +4,37 @@ export type SchemaVersion = number;
  */
 export type SRN = string;
 
+export type UUID = string;
+
+export type Status = string;
+
+export type Type = string;
+
 /**
  * This model is sent by Sym both to Log Destinations for [reporting](https://docs.symops.com/docs/reporting), as well as for the [HTTP](https://docs.symops.com/docs/http) and [AWS Lambda](https://docs.symops.com/docs/aws-lambda) Strategies.
  */
 export interface SymLogEntry {
+  id: UUID;
   meta: LogEntryMeta;
+  state: LogEntryState;
   run: LogEntryRun;
   event: LogEntryEvent;
   actor: LogEntryActor;
   fields: LogEntryApprovalFields;
+  type: Type;
 }
 export interface LogEntryMeta {
   schema_version?: SchemaVersion;
+}
+
+export interface LogEntryError {
+  message: string;
+  code: string;
+}
+
+export interface LogEntryState {
+  status: Status;
+  errors: LogEntryError[];
 }
 export interface LogEntryRun {
   srn: SRN;
@@ -27,6 +46,7 @@ export interface LogEntryEvent {
   type: string;
   template: SRN;
   timestamp: string;
+  channel: string;
 }
 export interface LogEntryActor {
   user: SRN;
@@ -76,7 +96,7 @@ export class ParsedSRN {
   }
 
   getComponents(): string[] {
-    return this.srn.split(':');
+    return this.srn.split(":");
   }
 
   public get org(): string {
