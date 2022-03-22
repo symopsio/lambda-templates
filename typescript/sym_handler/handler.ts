@@ -15,7 +15,7 @@ export const handle = async (
   } else if (log.event.type == "deescalate") {
     return handleDeescalate(log);
   } else {
-    return { ok: false, error: "Unknown event type" };
+    return { body: { "ok": false}, errors: ["Unknown event type"] };
   }
 };
 
@@ -24,13 +24,13 @@ const handleEscalate = async (log: SymLogEntry): Promise<Object> => {
   const target = new ParsedSRN(log.fields.target.srn);
 
   if (flow.slug != "my-lambda-flow") {
-    return { ok: false, error: "Unknown flow" };
+    return { body: { "ok": false}, errors: ["Unknown flow"] };
   }
 
   // Call your business logic, passing, for example, the username and the target
   // doSomething(log.actor.username, target.srn.slug);
 
-  return { ok: true };
+  return { body: { "ok": true}, errors: [] };
 };
 
 const handleDeescalate = async (log: SymLogEntry): Promise<Object> => {
@@ -39,7 +39,7 @@ const handleDeescalate = async (log: SymLogEntry): Promise<Object> => {
   // Call your business logic, passing, for example, the username and the target
   // doSomething(log.actor.username, target.srn.slug);
 
-  return { ok: true };
+  return { body: { "ok": true}, errors: [] };
 };
 
 if (require.main === module) {

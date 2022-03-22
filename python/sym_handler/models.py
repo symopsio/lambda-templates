@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Optional, Union, Any
 
 from pydantic import BaseModel
 from sym.sdk import SRN
@@ -79,3 +79,10 @@ class SymLogEntry(BaseModel):
     actor: LogEntryActor
     fields: Union[LogEntryApprovalFields, LogEntryFields]
     type: str
+
+
+class SymLambdaResponse(BaseModel):
+    """Pydantic model representing the expected response structure from Lambdas invoked by the Lambda Strategy"""
+
+    body: Dict[str, Any]
+    errors: List[str] = []
