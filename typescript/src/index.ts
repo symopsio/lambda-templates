@@ -24,8 +24,8 @@ export const handler = async (event: SymEvent, _context?: Context): Promise<SymR
 };
 
 /**
- * Takes the incoming user from the event and resolves to the right user id for
- * the system you're escalating the user in.
+ * Placeholder to takes the incoming user from the event and resolves to the
+ * right user id for the system you're escalating the user in.
  * @param event
  * @returns username
  */

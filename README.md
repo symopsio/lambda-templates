@@ -25,12 +25,10 @@ You can try the template out by starting with this Terraform snippet or the equi
 ```
 resource "aws_lambda_function" "this" {
   ...
-
   s3_bucket = "sym-releases"
   s3_key = "lambda-templates/python.zip"
   handler = "handler.handle"
   runtime = "python3.9"
-
   ...
 }
 ```
@@ -41,6 +39,7 @@ resource "aws_lambda_function" "this" {
 
 ```
 $ pip install -r requirements.txt
+$ # -e for an escalate payload, -d for a deescalate payload
 $ python handler.py [-e | -d]
 ```
 
@@ -57,12 +56,10 @@ You can try the template out by starting with this Terraform snippet or the equi
 ```
 resource "aws_lambda_function" "this" {
   ...
-
   s3_bucket = "sym-releases"
   s3_key = "lambda-templates/typescript.zip"
   handler  = "index.handler"
   runtime  = "nodejs14.x"
-
   ...
 }
 ```
@@ -73,6 +70,7 @@ resource "aws_lambda_function" "this" {
 
 ```
 $ npm install
+$ # -e for an escalate payload, -d for a deescalate payload
 $ npx ts-node src/index.ts [-e | -d]
 ```
 
@@ -89,12 +87,10 @@ You can try the template out by starting with this Terraform snippet or the equi
 ```
 resource "aws_lambda_function" "this" {
   ...
-
   s3_bucket = "sym-releases"
   s3_key = "lambda-templates/go.zip"
   handler  = "bin/handler"
   runtime  = "go1.x"
-
   ...
 }
 ```
@@ -105,6 +101,7 @@ resource "aws_lambda_function" "this" {
 
 ```
 $ cd cmd/local
+$ # -e for an escalate payload, -d for a deescalate payload
 $ go run . [-e | -d]
 ```
 

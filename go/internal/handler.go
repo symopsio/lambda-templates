@@ -31,8 +31,8 @@ func ResultForError(err error) *SymResult {
 	return &SymResult{Body: map[string]interface{}{}, Errors: []string{s}}
 }
 
-// ResolveUser takes the incoming user from the Sym event and resolves to the
-// right user id for the system you're escalating the user in.
+// ResolveUser is a placeholder that takes the incoming user from the Sym event
+// and resolves to the right user id for the system you're escalating the user in.
 func ResolveUser(event SymEvent) (string, error) {
 	return event.Actor.Username, nil
 }
