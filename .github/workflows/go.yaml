@@ -1,10 +1,10 @@
-name: Python Release
+name: Go Release
 on:
   push:
     branches:
       - main
     paths:
-      - 'python/**'
+      - 'go/**'
 env:
   BUCKET_NAME : "sym-releases"
   AWS_REGION : "us-east-1"
@@ -12,19 +12,19 @@ permissions:
       id-token: write
       contents: read    # This is required for actions/checkout@v2
 jobs:
-  PythonPackageUpload:
+  GoPackageUpload:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
         uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - name: Set up Go
+        uses: actions/setup-go@v3
         with:
-          python-version: '3.x'
+          go-version: '>=1.15.0'
       - name: Build handler package
         run: |
-          build.sh
-        working-directory: python
+          make
+        working-directory: go
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@master
         with:
@@ -33,4 +33,4 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
       - name:  Copy package to s3
         run: |
-          aws s3 cp --acl authenticated-read ./python/handler.zip s3://${{ env.BUCKET_NAME }}/lambda-templates/python.zip
+          aws s3 cp --acl authenticated-read ./go/dist/handler.zip s3://${{ env.BUCKET_NAME }}/lambda-templates/go.zip
