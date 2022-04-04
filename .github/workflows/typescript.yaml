@@ -23,7 +23,7 @@ jobs:
           node-version: '14'
       - name: Build handler package
         run: |
-          build.sh
+          ./build.sh
         working-directory: typescript
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@master

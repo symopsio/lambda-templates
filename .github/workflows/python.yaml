@@ -23,7 +23,7 @@ jobs:
           python-version: '3.x'
       - name: Build handler package
         run: |
-          build.sh
+          ./build.sh
         working-directory: python
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@master
