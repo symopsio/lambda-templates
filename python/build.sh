@@ -16,9 +16,11 @@ fi
 echo "Installing dependencies..."
 pip install -r requirements.txt --target dist
 
-echo "Creating handler.zip"
+echo "Creating handler.zip..."
 pushd dist || exit 1
 zip -q -r ../handler.zip .
 popd || exit 1
 
 zip -r -g handler.zip handler.py
+
+echo "Build complete!"

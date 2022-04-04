@@ -28,3 +28,5 @@ pushd dist || exit 1
   zip -q -r ../handler.zip .
 
 popd || exit 1
+
+echo "Build complete!"
