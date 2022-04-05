@@ -51,8 +51,6 @@ func loadEvent(fileName string) (*i.SymEvent, error) {
 	}
 
 	var event i.SymEvent
-
 	json.Unmarshal(byteValue, &event)
-
 	return &event, nil
 }
