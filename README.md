@@ -2,7 +2,7 @@
 
 Sym's serverless integrations let you use Sym workflows to manage resources that the Sym platform does not directly integrate with. Sym invokes your custom function with the appropriate metadata and then your function implementation updates your backend systems.
 
-## Lambda Quickstart
+## Quickstart
 
 Check out our [Lambda Quickstart](https://aws-lambda.tutorials.symops.com/) to see Sym's Lambda integration in action!
 
