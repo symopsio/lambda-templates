@@ -30,7 +30,7 @@ export const handler = async (event: SymEvent, _context?: Context): Promise<SymR
  * @returns username
  */
 function resolveUser(event: SymEvent): string {
-  return event.actor.username;
+  return event.run.actors["request"].username;
 }
 
 /**
@@ -41,7 +41,7 @@ function resolveUser(event: SymEvent): string {
  */
 function updateUser(username: string, event: SymEvent): string {
   const eventType = event.event.type;
-  switch(eventType) {
+  switch (eventType) {
     case "escalate":
       return `Escalating user: ${username}`;
     case "deescalate":
@@ -68,7 +68,7 @@ function getErrorMessage(error: unknown) {
  */
 function resolveLocalJson(arg: string): SymEvent {
   let file;
-  switch(arg) {
+  switch (arg) {
     case "-d":
       file = "deescalate.json"
       break;

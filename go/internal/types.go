@@ -10,6 +10,11 @@ type SymEventDetails struct {
 	Type string `json:"type"`
 }
 
+// SymRun contains metadata on the run of this workflow
+type SymRun struct {
+	Actors map[string]SymActor `json:"actors"`
+}
+
 // Starter model for Sym events, just including the username and event type
 // properties that are required by our example Lambda implementation.
 // For more details on the event object format, refer to our reporting docs:
@@ -17,6 +22,7 @@ type SymEventDetails struct {
 type SymEvent struct {
 	Actor   *SymActor        `json:"actor"`
 	Details *SymEventDetails `json:"event"`
+	Run     *SymRun          `json:"run"`
 }
 
 // Sym expects your Lambda implementation to return an object a body that can be

@@ -34,7 +34,7 @@ func ResultForError(err error) *SymResult {
 // ResolveUser is a placeholder that takes the incoming user from the Sym event
 // and resolves to the right user id for the system you're escalating the user in.
 func ResolveUser(event SymEvent) (string, error) {
-	return event.Actor.Username, nil
+	return event.Run.Actors["request"].Username, nil
 }
 
 // UpdateUser is a placeholder to handle updating the given username based on
