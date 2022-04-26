@@ -24,10 +24,10 @@ def handle(event, context) -> dict:
 
 def resolve_user(event) -> str:
     """
-    Placeholder to take the incoming user from the event and resolve to the right
+    Placeholder to take the requesting user and resolve to the right
     user id for the system you're escalating the user in.
     """
-    return event["actor"]["username"]
+    return event["run"]["actors"]["request"]["username"]
 
 
 def update_user(username, event) -> str:

@@ -8,7 +8,16 @@
 export interface SymEvent {
   actor: SymActor;
   event: SymEventDetails;
+  run: SymRun;
 }
+
+/**
+ * Metadata on the run of this workflow
+ */
+export interface SymRun {
+  actors: { [name: string]: SymActor };
+}
+
 
 /**
  * Metadata on the user that initiated the Sym event

@@ -10,7 +10,29 @@
   "run": {
     "srn": "sym:run:lambda_access:1.0.0:ff30a212-24d9-459c-8784-de275042b083",
     "parent": "sym:run:flow_selection:1.0.0:ad7c412c-99ef-4e17-b57f-a97a1ad8320f",
-    "flow": "sym:flow:lambda_access:1.0.0"
+    "flow": "sym:flow:lambda_access:1.0.0",
+    "actors": {
+      "prompt": {
+        "user": "sym:user:2dba7476-a43d-4eb4-ac4b-bdc33b83fca0:latest",
+        "name": "Sym User",
+        "username": "sym-user@healthy-health.co",
+        "identity": {
+          "service": "slack",
+          "external_id": "T0123456789",
+          "user_id": "U0123456789"
+        }
+      },
+      "request": {
+        "user": "sym:user:2dba7476-a43d-4eb4-ac4b-bdc33b83fca0:latest",
+        "name": "Sym User",
+        "username": "sym-user@healthy-health.co",
+        "identity": {
+          "service": "slack",
+          "external_id": "T0123456789",
+          "user_id": "U0123456789"
+        }
+      }
+    }
   },
   "event": {
     "srn": "sym:event-spec:approval:1.0.0:escalate",
