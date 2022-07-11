@@ -1,2 +1,5 @@
 dist/
 handler.zip
+
+.DS_Store
+.idea/

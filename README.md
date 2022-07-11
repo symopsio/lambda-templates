@@ -2,13 +2,15 @@
 
 Sym's serverless integrations let you use Sym workflows to manage resources that the Sym platform does not directly integrate with. Sym invokes your custom function with the appropriate metadata and then your function implementation updates your backend systems.
 
+For full documentation, check out the [AWS Lambda Access Strategy Docs](https://docs.symops.com/docs/aws-lambda).
+
 ## Quickstart
 
-Check out our [Lambda Quickstart](https://aws-lambda.tutorials.symops.com/) to see Sym's Lambda integration in action!
+Check out our [AWS Lambda Strategy Example](https://github.com/symopsio/examples/tree/main/aws_lambda_strategy) to see Sym's Lambda Strategy in action!
 
 ## Schema
 
-The schema of Sym's requests to you can be found [here](https://sym.stoplight.io/docs/sym-reporting), with example payloads in the [`test`](test) directory.
+The schema of Sym's requests to you can be found [here](https://json-schema.app/view/%23?url=https%3A%2F%2Fgist.githubusercontent.com%2Fdruiz%2Feff2a439a3239812b5aa05754bc7d70a%2Fraw%2F1888293393757de0722b7cf30206f75c7e048e49%2Flog_entry_schema.json), with example payloads in the [`test`](test) directory.
 
 ## Deploying
 
